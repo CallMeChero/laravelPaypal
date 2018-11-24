@@ -22,9 +22,13 @@
     // Set up a payment
     payment: function(data, actions) {
       return actions.payment.create({
+        redirect_urls: {
+          return_url:'http://localhost:8000/execute-payment'
+        },
+        //just mimic, real transaction is on server side
         transactions: [{
           amount: {
-            total: '0.01',
+            total: '21',
             currency: 'USD'
           }
         }]
@@ -32,10 +36,8 @@
     },
     // Execute the payment
     onAuthorize: function(data, actions) {
-      return actions.payment.execute().then(function() {
-        // Show a confirmation message to the buyer
-        window.alert('Thank you for your purchase!');
-      });
+      console.log(data);
+      return actions.redirect();
     }
   }, '#paypal-button');
 
