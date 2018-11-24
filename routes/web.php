@@ -6,4 +6,4 @@ Route::get('/', function () {
 });
 
 Route::get('/execute-payment', 'PaymentController@storeInfo');
-
+Route::post('/create-payment', 'PaymentController@createPayment');
