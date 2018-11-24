@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Paypal;
 
 use Illuminate\Http\Request;
 use PayPal\Api\Amount; 
@@ -19,8 +20,8 @@ class PaymentController extends Controller
 
     	$apiContext = new \PayPal\Rest\ApiContext(
 	        new \PayPal\Auth\OAuthTokenCredential(
-	            'AZM6QPUQsSAV6LGUjnYk6OzR8V7hvqlxVCKk1kiFA77DyzSRWqTNE71Y_QXIYBdKosB1OQTpGXr_iZzM',     // ClientID
-	            'EEzOTTHejBI9itN-y2c7Ikt_bIZ68AGXQsyDAPxOz-hHUph7SZNITuhqd4JwiXFPBnJr5cW1D6j1fkeU'      // ClientSecret
+	            config('services.paypal.id'),  // ClientID
+	            config('services.paypal.secret')      // ClientSecret
         	)
 		);
 
@@ -54,8 +55,8 @@ class PaymentController extends Controller
 
     	$apiContext = new \PayPal\Rest\ApiContext(
 	        new \PayPal\Auth\OAuthTokenCredential(
-	            'AZM6QPUQsSAV6LGUjnYk6OzR8V7hvqlxVCKk1kiFA77DyzSRWqTNE71Y_QXIYBdKosB1OQTpGXr_iZzM',     // ClientID
-	            'EEzOTTHejBI9itN-y2c7Ikt_bIZ68AGXQsyDAPxOz-hHUph7SZNITuhqd4JwiXFPBnJr5cW1D6j1fkeU'      // ClientSecret
+	            config('services.paypal.id'),  // ClientID
+	            config('services.paypal.secret')      // ClientSecret
         	)
 		);
 
